@@ -62,6 +62,13 @@ function send(msg) {
 
 
 $(document).ready(function () {
+    $("#enviar").click(function(e){
+        var msg = $("#entry").attr("value").replace("\n", "");
+        if (!util.isBlank(msg)) {
+            send(msg);
+        }
+        $("#entry").attr("value", "");
+    });
     //submit new messages when the user hits enter if the message isnt blank
     $("#entry").keypress(function (e) {
         if (e.keyCode != 13 /* Return */) return;
